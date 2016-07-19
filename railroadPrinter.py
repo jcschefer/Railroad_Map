@@ -155,34 +155,26 @@ def dijkstra(nodeToNeighbors, first, target):
         #checkedPaths.add( (lastNode, n) )
     check.append(lastNode)
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+########################################################################
 #
 if __name__ == '__main__':
   #
   START = nameSwapper[START]
   END   = nameSwapper[END]
   #
-  astar_long = open('railroadAstarLong.txt'    , 'w')
-  astar_lat  = open('railroadAstarLat.txt'     , 'w')
-  bfs_long   = open('railroadDijkstraLong.txt' , 'w')
-  bfs_lat    = open('railroadDijkstraLat.txt'  , 'w')
-  other_long = open('railroadRemainingLong.txt', 'w')
-  other_lat  = open('railroadRemainingLat.txt' , 'w')
+  astar_long = []
+  astar_lat  = [] 
+  bfs_long   = [] 
+  bfs_lat    = [] 
+  other_long = [] 
+  other_lat  = [] 
   #
+  print('starting Astar search...')
   aPath,g1,closedSet,astarChecked = astar(nodeToNeighbors, START, END)
+  print('Astar search finished...')
+  print('starting Dijkstra search...')
   dPath,g2,closeset,dijkstraChecked = dijkstra(nodeToNeighbors, START, END)
+  print('Dijkstra search finished...')
   #
   astarChecked    = set(astarChecked)
   dijkstraChecked = set(dijkstraChecked)
@@ -217,21 +209,93 @@ if __name__ == '__main__':
     #
     long1, lat1 = nodeToCoordinates[start]
     long2, lat2 = nodeToCoordinates[end]
-    longout.write(str(long1) + '\n' + str(long2) + '\n')
-    latout.write( str(lat1 ) + '\n' + str(lat2)  + '\n')
+    longout.append(str(long1))
+    longout.append(str(long2))
+    latout.append( str(lat1 ))
+    latout.append( str(lat2 ))
     #
   #
-  print(len(astarChecked))
-  print(len(dijkstraChecked))
-  print(numOther)
-  print(len(allPaths))
+  print('A-star paths:', len(astarChecked) / 2)
+  print('Dijkstra paths:', len(dijkstraChecked) / 2)
+  print('Remaining Paths:', numOther)
+  print('Total:', len(allPaths))
   #
-  astar_long.close()
-  astar_lat .close()
-  bfs_long  .close()
-  bfs_lat   .close()
-  other_long.close()
-  other_lat .close()
+  ##########################################################################
+  #
+  # Make the js resource file
+  filename = 'js_resources.js'
+  out = open(filename , 'w')
+  #
+  # Astar printing
+  out.write('var astarLat = [\n')
+  for i in range(len(astar_lat)):
+    #
+    joiner = ''
+    if i != len(astar_lat) - 1: joiner += ','
+    #
+    out.write('   ' + astar_lat[i] + joiner + '\n')
+    #
+  #
+  out.write('];\n\n')
+  #
+  out.write('var astarLong = [\n')
+  for i in range(len(astar_long)):
+    #
+    joiner = ''
+    if i != len(astar_long) - 1: joiner += ','
+    #
+    out.write('   ' + astar_long[i] + joiner + '\n')
+    #
+  #
+  out.write('];\n\n')
+  #
+  # BFS printing
+  out.write('var dijkstraLat = [\n')
+  for i in range(len(bfs_lat)):
+    #
+    joiner = ''
+    if i != len(bfs_lat) - 1: joiner += ','
+    #
+    out.write('   ' + bfs_lat[i] + joiner + '\n')
+    #
+  #
+  out.write('];\n\n')
+  #
+  out.write('var dijkstraLong = [\n')
+  for i in range(len(bfs_long)):
+    #
+    joiner = ''
+    if i != len(bfs_long) - 1: joiner += ','
+    #
+    out.write('   ' + bfs_lat[i] + joiner + '\n')
+    #
+  #
+  out.write('];\n\n')
+  #
+  # Remaining printing
+  out.write('var otherLat = [\n')
+  for i in range(len(other_lat)):
+    #
+    joiner = ''
+    if i != len(other_lat) - 1: joiner += ','
+    #
+    out.write('   ' + other_lat[i] + joiner + '\n')
+    #
+  #
+  out.write('];\n\n')
+  #
+  out.write('var otherLong = [\n')
+  for i in range(len(other_long)):
+    #
+    joiner = ''
+    if i != len(other_long) - 1: joiner += ','
+    #
+    out.write('   ' + other_long[i] + joiner + '\n')
+    #
+  #
+  out.write('];\n\n')
+  #
+  out.close()
   #
 #
 #
