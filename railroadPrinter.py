@@ -227,73 +227,73 @@ if __name__ == '__main__':
   out = open(filename , 'w')
   #
   # Astar printing
-  out.write('var astarLat = [\n')
+  out.write('function gastarLat(){return [')
   for i in range(len(astar_lat)):
     #
     joiner = ''
-    if i != len(astar_lat) - 1: joiner += ','
+    if i != len(astar_lat) - 1: joiner += ', '
     #
-    out.write('   ' + astar_lat[i] + joiner + '\n')
+    out.write(astar_lat[i] + joiner)
     #
   #
-  out.write('];\n\n')
+  out.write('];}\n')
   #
-  out.write('var astarLong = [\n')
+  out.write('function gastarLong(){return [')
   for i in range(len(astar_long)):
     #
     joiner = ''
-    if i != len(astar_long) - 1: joiner += ','
+    if i != len(astar_long) - 1: joiner += ', '
     #
-    out.write('   ' + astar_long[i] + joiner + '\n')
+    out.write(astar_long[i] + joiner)
     #
   #
-  out.write('];\n\n')
+  out.write('];}\n')
   #
   # BFS printing
-  out.write('var dijkstraLat = [\n')
+  out.write('function gdijkstraLat(){ return [')
   for i in range(len(bfs_lat)):
     #
     joiner = ''
-    if i != len(bfs_lat) - 1: joiner += ','
+    if i != len(bfs_lat) - 1: joiner += ', '
     #
-    out.write('   ' + bfs_lat[i] + joiner + '\n')
+    out.write(bfs_lat[i] + joiner)
     #
   #
-  out.write('];\n\n')
+  out.write('];}\n')
   #
-  out.write('var dijkstraLong = [\n')
+  out.write('function gdijkstraLong{ return [')
   for i in range(len(bfs_long)):
     #
     joiner = ''
-    if i != len(bfs_long) - 1: joiner += ','
+    if i != len(bfs_long) - 1: joiner += ', '
     #
-    out.write('   ' + bfs_lat[i] + joiner + '\n')
+    out.write(bfs_lat[i] + joiner)
     #
   #
-  out.write('];\n\n')
+  out.write('];}\n')
   #
   # Remaining printing
-  out.write('var otherLat = [\n')
+  out.write('function gotherLat(){ return [')
   for i in range(len(other_lat)):
     #
     joiner = ''
-    if i != len(other_lat) - 1: joiner += ','
+    if i != len(other_lat) - 1: joiner += ', '
     #
-    out.write('   ' + other_lat[i] + joiner + '\n')
+    out.write(other_lat[i] + joiner)
     #
   #
-  out.write('];\n\n')
+  out.write('];}\n')
   #
-  out.write('var otherLong = [\n')
+  out.write('function gotherLong(){return [')
   for i in range(len(other_long)):
     #
     joiner = ''
-    if i != len(other_long) - 1: joiner += ','
+    if i != len(other_long) - 1: joiner += ', '
     #
-    out.write('   ' + other_long[i] + joiner + '\n')
+    out.write(other_long[i] + joiner)
     #
   #
-  out.write('];\n\n')
+  out.write('];}\n')
   #
   out.close()
   #
