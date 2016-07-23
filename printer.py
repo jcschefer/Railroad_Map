@@ -227,7 +227,7 @@ if __name__ == '__main__':
   out = open(filename , 'w')
   #
   # Astar printing
-  out.write('function gastarLat(){return [')
+  out.write('function gastarLat(){ return [')
   for i in range(len(astar_lat)):
     #
     joiner = ''
@@ -238,7 +238,7 @@ if __name__ == '__main__':
   #
   out.write('];}\n')
   #
-  out.write('function gastarLong(){return [')
+  out.write('function gastarLong(){ return [')
   for i in range(len(astar_long)):
     #
     joiner = ''
@@ -261,7 +261,7 @@ if __name__ == '__main__':
   #
   out.write('];}\n')
   #
-  out.write('function gdijkstraLong{ return [')
+  out.write('function gdijkstraLong(){ return [')
   for i in range(len(bfs_long)):
     #
     joiner = ''
@@ -284,7 +284,7 @@ if __name__ == '__main__':
   #
   out.write('];}\n')
   #
-  out.write('function gotherLong(){return [')
+  out.write('function gotherLong(){ return [')
   for i in range(len(other_long)):
     #
     joiner = ''
