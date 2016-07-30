@@ -13,10 +13,6 @@ def main():
    args = ['firefox', 'map.html']
    call(args)
    #
-   # 3. remove the temporary resource file after everything is done
-   args = ['rm js_resources.js']
-   call(args, shell = True)
-   #
 #
 ################################################################
 #
