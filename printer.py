@@ -202,11 +202,6 @@ if __name__ == '__main__':
     latout.append( str(lat2 ))
     #
   #
-  print('A-star paths:', len(astarChecked) / 2)
-  print('Dijkstra paths:', len(dijkstraChecked) / 2)
-  print('Remaining Paths:', numOther)
-  print('Total:', len(allPaths))
-  #
   ##########################################################################
   #
   # Make the js resource file
