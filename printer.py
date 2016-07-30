@@ -227,7 +227,7 @@ if __name__ == '__main__':
   out = open(filename , 'w')
   #
   # Astar printing
-  out.write('function gastarLat(){ return [')
+  out.write('var gastarLat = function(){ return [')
   for i in range(len(astar_lat)):
     #
     joiner = ''
@@ -238,7 +238,7 @@ if __name__ == '__main__':
   #
   out.write('];}\n')
   #
-  out.write('function gastarLong(){ return [')
+  out.write('var gastarLong = function(){ return [')
   for i in range(len(astar_long)):
     #
     joiner = ''
@@ -250,7 +250,7 @@ if __name__ == '__main__':
   out.write('];}\n')
   #
   # BFS printing
-  out.write('function gdijkstraLat(){ return [')
+  out.write('var gdijkstraLat = function(){ return [')
   for i in range(len(bfs_lat)):
     #
     joiner = ''
@@ -261,7 +261,7 @@ if __name__ == '__main__':
   #
   out.write('];}\n')
   #
-  out.write('function gdijkstraLong(){ return [')
+  out.write('var gdijkstraLong = function(){ return [')
   for i in range(len(bfs_long)):
     #
     joiner = ''
@@ -273,7 +273,7 @@ if __name__ == '__main__':
   out.write('];}\n')
   #
   # Remaining printing
-  out.write('function gotherLat(){ return [')
+  out.write('var gotherLat = function(){ return [')
   for i in range(len(other_lat)):
     #
     joiner = ''
@@ -284,7 +284,7 @@ if __name__ == '__main__':
   #
   out.write('];}\n')
   #
-  out.write('function gotherLong(){ return [')
+  out.write('var gotherLong = function(){ return [')
   for i in range(len(other_long)):
     #
     joiner = ''
@@ -295,6 +295,7 @@ if __name__ == '__main__':
   #
   out.write('];}\n')
   #
+  out.write('console.log(\'Data loaded succesfully!\')')
   out.close()
   #
 #
