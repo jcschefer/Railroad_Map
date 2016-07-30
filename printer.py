@@ -34,7 +34,6 @@ nodesToDistance = {}    # maps a tuple of nodes to the distance, both directions
 #
 i = 0
 #
-#'''
 while i < len(tempList):
   code = tempList[i]
   y = float(tempList[i + 1])
@@ -43,7 +42,6 @@ while i < len(tempList):
   nodeToCoordinates[code] = (x,y)
   if code in nameSwapper: nodeToCoordinates[ nameSwapper[code] ] = (x,y)
   #
-#'''
 #
 i = 0
 while i < len(neighborlist)-1:
@@ -80,8 +78,6 @@ def distance(node1, node2):
 #
 def astar(nodeToNeighbors, first, target): #returns a tuple containing the path, followed by the distance traveled, followed by the size of the cf closed set
   #
-  #if not isCode(first): first = nameSwapper[first]
-  #if not isCode(target): target = nameSwapper[target]
   pq = []                      #contents: (f, g, h, list) 
   h = distance(first, target)
   checkedPaths = set()
@@ -90,13 +86,10 @@ def astar(nodeToNeighbors, first, target): #returns a tuple containing the path,
   pq.append(p)
   heapq.heapify(pq)
   check = []
-  #if not isCode(first): first = nameSwapper[first]
-  #if not isCode(target): target = nameSwapper[target]
   while pq:
     #
     t = heapq.heappop(pq)
     tF, tG, tH, tPath = t
-    #qSet += 1
     lastNode = tPath[len(tPath) - 1]
     if len(tPath) > 1: checkedPaths.add( (lastNode, tPath[len(tPath)-2]) )
     #
@@ -112,7 +105,6 @@ def astar(nodeToNeighbors, first, target): #returns a tuple containing the path,
         nPath.append(neighbor)
         t = (nF, nG, nH, nPath)
         heapq.heappush(pq,t)
-        #checkedPaths.add( (lastNode, neighbor) )
     #
     check.append(lastNode)
   #
@@ -124,15 +116,11 @@ def isCode(s):
   if s[0]=='0' or s[0]=='1' or s[0]=='2' or s[0]=='3' or s[0]=='4' or s[0]=='5' or s[0]=='6' or s[0]=='7' or s[0]=='8' or s[0]=='9': return True
   return False
 #
-#
-#
-#
+########################################################################
 #
 def dijkstra(nodeToNeighbors, first, target):
-  #numVisited = 0
   pq = []    #to contain (g, list)
   qSet = 0
-  #heapq.heappush(pq, (0,[first])  )
   check = []
   checkedPaths = set()
   if not isCode(first): first = nameSwapper[first]
@@ -152,7 +140,6 @@ def dijkstra(nodeToNeighbors, first, target):
         nG = tG + distance(lastNode, n)
         t = (nG,nPath)
         heapq.heappush(pq,t)
-        #checkedPaths.add( (lastNode, n) )
     check.append(lastNode)
 #
 ########################################################################
@@ -267,7 +254,7 @@ if __name__ == '__main__':
     joiner = ''
     if i != len(bfs_long) - 1: joiner += ', '
     #
-    out.write(bfs_lat[i] + joiner)
+    out.write(bfs_long[i] + joiner)
     #
   #
   out.write('];}\n')
