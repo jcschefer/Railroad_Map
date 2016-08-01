@@ -8,4 +8,4 @@ To view the map, run the python file called runme.py, this will run the A* and D
 
 By default, the map will open in firefox, but this can be changed in the runme.py file.
 
-*This was made to be run from the command line on linux, other operating systems will most likely require tweaks to get it to run properly.
+*This was made to be run from the command line on linux, see the comments in runme.py for Mac users, other operating systems will most likely require tweaks to get it to run properly.
