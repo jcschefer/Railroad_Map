@@ -21,6 +21,10 @@ There are a couple steps to getting the server running locally:
 		example file directly, make sure to remove the example file extension so Python
 		can import it correctly.
 	</li>
+	<li>
+		Generate the base gRPC code and Protobuf classes by navigating into the <code>service</code>
+		directory and running the build script.
+	</li>
 	<li>Start up the services (web server and backend gRPC server). This can be done one of
 		two ways. They can be started separately using <code>python3 server.py</code> and
 		<code>python3 service/railroad_server.py</code>. Alternatively, this project is
