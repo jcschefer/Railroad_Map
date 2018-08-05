@@ -34,4 +34,4 @@ def perform_search():
     return MessageToJson(client.perform_search(source, destination))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=os.getenv('PORT', 5000))
