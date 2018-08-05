@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import json
-from os import getenv
+import os
 
 from google.protobuf.json_format import MessageToJson
 
@@ -9,7 +9,7 @@ from service import railroad_client as client
 
 app = Flask(__name__)
 
-MAPS_API_KEY = getenv('MAPS_API_KEY')
+MAPS_API_KEY = os.getenv('MAPS_API_KEY')
 if MAPS_API_KEY == None:
     import secret
     MAPS_API_KEY = secret.MAPS_API_KEY
