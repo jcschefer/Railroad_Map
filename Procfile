@@ -1,2 +1,2 @@
-web: python3 server.py
-worker: bash startserver.sh
+web: bash web.sh
+worker: bash worker.sh
