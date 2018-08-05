@@ -1,14 +1,18 @@
 from flask import Flask, render_template, request
 import json
+from os import getenv
 
 from google.protobuf.json_format import MessageToJson
 
 import service
 from service import railroad_client as client
 
-from secret import MAPS_API_KEY
-
 app = Flask(__name__)
+
+MAPS_API_KEY = getenv('MAPS_API_KEY')
+if MAPS_API_KEY == None:
+    import secret
+    MAPS_API_KEY = secret.MAPS_API_KEY
 
 @app.route('/')
 def index():
