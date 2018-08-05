@@ -1,0 +1,18 @@
+{
+	"services": [
+		{
+			"name": "web",
+			"path": "/home/jschefer/code/git_repos/railroad_map",
+			"commands": {
+				"launch": "venv/bin/python3 server.py"
+			}
+		},
+		{
+			"name": "server",
+			"path": "/home/jschefer/code/git_repos/railroad_map",
+			"commands": {
+				"launch": "venv/bin/python3 service/railroad_server.py"
+			}
+		}
+	]
+}

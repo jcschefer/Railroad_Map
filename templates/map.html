@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="UTF-8"></meta>
+    <style>#mapCanvas{width:100%;height:90%;}</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+  </head>
+  <body>
+	<div class="container-fluid">
+	  <div class="row form-group"></div>
+	  <div class="row form-group">
+		<form id="source-destination-section">
+	      <div class="col-sm-5">
+		    <select name="source" class="selectpicker" data-live-search="true" title="Source" required>
+			  {% for city in cities %}
+				<option value="{{ city.id }}">{{ city.name }}</option>
+			  {% endfor %}
+		    </select>
+		  </div>
+	      <div class="col-sm-5">
+		    <select name="destination" class="selectpicker" data-live-search="true" title="Destination" required>
+			  {% for city in cities %}
+				<option value="{{ city.id }}">{{ city.name }}</option>
+			  {% endfor %}
+		    </select>
+		  </div>
+		  <div class="col-sm-2">
+			<button type="submit" class="button">Submit</button>
+		  </div>
+		</form>
+	  </div>
+	  <div class="row form-group">
+	    <div class="col-sm-12">
+		  <div id="mapCanvas"></div>
+		</div>
+	  </div>
+	</div>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key={{ api_key }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='builder.js') }}"></script>
+    <script type="text/javascript">console.log("all scripts loaded")</script>
+  </body>
+</html>

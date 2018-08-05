@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+service RailroadBackend {
+	rpc GetAllPaths (Empty) returns (GetAllPathsResponse) {}
+	rpc PerformSearch (PerformSearchRequest) returns (PerformSearchResponse) {}
+}
+
+message Node {
+	string key = 1;
+	float lat = 2;
+	float lng = 3;
+}
+
+message Path {
+	string key = 1;
+	Node source = 2;
+	Node destination = 3;
+}
+
+message Empty {
+}
+
+message GetAllPathsResponse {
+	repeated Path path = 1;
+}
+
+message PerformSearchRequest {
+	string source = 1;
+	string destination = 2;
+}
+
+message PerformSearchResponse {
+	repeated string a_star_keys = 1;
+	repeated string dijkstra_keys = 2;
+}
