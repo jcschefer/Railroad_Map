@@ -1,5 +1,5 @@
 # Railroad_Map
-Used Google Maps to help visualize the benefits of the A* graph search
+Used Google Maps and gRPC to help visualize the benefits of the A* graph search
 
 BACKGROUND:
    The A* search is designed to outperform other graph searches by a heuristically guessing the next node in the graph to check. This means that the algorithm will only have to check a fraction of the total paths before finding the shortest solution. As you can see in the example screenshots provided, the A* search(red) ouperforms the Dijkstra's algorithm (green). The blue paths represent all remaining nodes in the tree that neither algorithm checked.
@@ -11,8 +11,24 @@ Chicago to Dallas:
 Chicago to Atlanta:
 ![Sample visualization](screenshot3.jpg?raw=true "Screenshot of A* Visualization - Chicago to Atlanta")
 
-To view the map, run the python file called runme.py, this will run the A* and Dijkstra searches, print out a temporary javascript file of coordinates, and then launch the map. If you would like to run a different search, other than the default of Washington, D.C. to Minneapolis, add two of the city names (or codes) found in rrNodeCity.txt after your call of runme.py; you could also just change the defaults at the top of printer.py. For example, to run the search from Dallas to Brooklyn you would run the command <code>$ python3 runme.py Dallas Brooklyn</code>.
-
-By default, the map will open in firefox, but this can be changed in the runme.py file.
-
-This was made to be run from the command line on linux, see the comments in runme.py for Mac users, other operating systems will most likely require tweaks to get it to run properly.
+There are a couple steps to getting the server running locally:
+<ul>
+	<li>Install the dependencies with <code>pip install -r requirements.txt</code></li>
+	<li>
+		Get a Google Maps API key from the Google Developer Console and save it into a
+		<code>secret.py</code> file similar to the example given. If you just edit the
+		example file directly, make sure to remove the example file extension so Python
+		can import it correctly.
+	</li>
+	<li>Start up the services (web server and backend gRPC server). This can be done one of
+		two ways. They can be started separately using <code>python3 server.py</code> and
+		<code>python3 service/railroad_server.py</code>. Alternatively, theis project is
+		configured to use <a href="https://github.com/yext/edward">edward</a> so if you 
+		have it installed you can just run <code>edward start web server</code></li>
+	<li>
+		Fire up your web browser and navigate to <a href="localhost:5000">localhost</a>
+	</li>
+	<li>
+		Pick a source and destination from the dropdowns and hit submit to see the results
+	</li>
+</ul>
