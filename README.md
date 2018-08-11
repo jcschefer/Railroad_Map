@@ -1,6 +1,15 @@
 # Railroad_Map
 Used Google Maps and gRPC to help visualize the benefits of the A* graph search
 
+### Table of Contents
+- [Railroad_Map](#railroad-map)
+    + [Background](#background)
+    + [This Project](#this-project)
+    + [Examples](#examples)
+    + [Technologies](#technologies)
+    + [Running Locally](#running-locally)
+
+
 ### Background
   Graph searching problems are generally phrased as follows: given a graph and two nodes in that graph, what is the shortest path between the two nodes. The canonically famous solution to this problem is [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) which is an adaptation on a breadth first search to include weighted edges. However, Dijkstra's algorithm is not very fast. A variant known as [A*](https://en.wikipedia.org/wiki/A*_search_algorithm) is significantly faster. If you've ever used a GPS to get directions, you can thank A* for the speed.
 
