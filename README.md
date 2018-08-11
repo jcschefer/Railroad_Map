@@ -9,7 +9,7 @@ Used Google Maps and gRPC to help visualize the benefits of the A* graph search
   The result: A* outperforms Dijkstra because it reaches the destination faster, it has to check fewer paths because it keeps the correct direction in mind at all times.
 
 ### This Project
-  This project applies these graph searches to a map of railroads spanning the United States. It allows you to select a source city and a destination city, then performs both graph searches. To visualize what paths are checked by each search, it draws the paths on a map using the Google Maps API. Paths drawn in Red are those inspected by A*, those in green are those inspected by Dijkstra's algorithm, and the remaining unchecked paths are drawn in blue. This lets us see that A* simply checks fewer paths than Dijkstra, and that while it fans out around the source city at first, it generally becomes more pointed toward the destination as time goes on.
+  This project applies these graph searches to a map of railroads spanning the United States. It allows you to select a source city and a destination city, then performs both graph searches. To visualize what paths are checked by each search, it draws the paths on a map using the Google Maps API. Paths drawn in red are those inspected by A*, those in green are those inspected by Dijkstra's algorithm, and the remaining unchecked paths are drawn in blue. This lets us see that A* simply checks fewer paths than Dijkstra, and that while it fans out around the source city at first, it generally becomes more pointed toward the destination as time goes on.
 
 ### Examples
   Here is a visualization of the path from Washington, D.C. to Minneapolis:
@@ -24,6 +24,7 @@ Used Google Maps and gRPC to help visualize the benefits of the A* graph search
 - [Protocol Buffers](https://developers.google.com/protocol-buffers/): a minimalist serialization tool allowing cross-language and cross-process data structured data transfer with very little memory overhead.
 - [gRPC](https://grpc.io/about/): a tool for creating Remote Procedure Call (RPC) services with Protocol Buffers. Generates boilerplate service code which allows clients to communicate to servers running in different threads over HTTP/2.
 - [Edward](http://engblog.yext.com/edward/): a tool for managing projects that require multiple services running on different processes.
+- [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial): Google's JavaScript API to work with embedded maps in websites.
 
 ### Running Locally
 There are a couple steps to getting the server running locally:
