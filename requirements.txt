@@ -3,6 +3,7 @@ Flask==1.0.2
 googleapis-common-protos==1.5.3
 grpcio==1.13.0
 grpcio-tools==1.13.0
+gunicorn==19.9.0
 itsdangerous==0.24
 Jinja2==2.10
 MarkupSafe==1.0

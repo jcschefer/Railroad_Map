@@ -8,4 +8,4 @@ if [ ! -f service/messages_pb2.py ] || [ ! -f service/messages_pb2_grpc.py ]; th
 	cd ..
 fi
 
-python3 server.py
+gunicorn server:app
