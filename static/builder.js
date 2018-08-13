@@ -9,6 +9,7 @@
 
 document.getElementById('source-destination-section').addEventListener('submit', function(event) {
   event.preventDefault();
+  $('#loading-placeholder').show();
 
   $.getJSON({
 	url: "/fetchSearchResults",
@@ -27,19 +28,19 @@ document.getElementById('source-destination-section').addEventListener('submit',
 
 			lines[path_key].setOptions({strokeColor: color});
 		});
+		$('#loading-placeholder').hide();
   }});
 });
 
 var createLines = function(e) {
 	$.getJSON({url: "/allLines", success: function(result){
-		//var paths = JSON.parse(result).path;
 		var paths = result.path;
 		paths.forEach(function(path) {
 			var coordinates = [
 				{lat: path['source']['lat'], lng: path['source']['lng']},
 				{lat: path['destination']['lat'], lng: path['destination']['lng']},
 			];
-			
+
 			lines[path['key']] = new google.maps.Polyline({
 				path: coordinates,
 				strokeColor: REMAINING_COLOR,
@@ -51,6 +52,10 @@ var createLines = function(e) {
 		Object.keys(lines).forEach(function(lineKey) {
 			lines[lineKey].setMap(map);
 		});
+
+		setTimeout(function() {
+			$('#loading-placeholder').hide();
+		}, 2000);
 	}});
 }
 
@@ -62,8 +67,6 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
 	editable: false
   });
-  //google.maps.event.addListener(map, 'tilesloaded', drawLines(map, latLng));
   google.maps.event.addListener(map, 'tilesloaded', createLines(map));
 }
 google.maps.event.addDomListener(window, 'load', initialize);
-

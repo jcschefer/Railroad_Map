@@ -1,7 +1,25 @@
 <html>
   <head>
     <meta charset="UTF-8"></meta>
-    <style>#mapCanvas{width:100%;height:90%;}</style>
+    <style>
+		#mapCanvas {
+			width:100%;
+			height:90%;
+		}
+		#loading-placeholder {
+			position: fixed;
+			background-color: white;
+			border: 1px solid gray;
+			border-radius: 7px;
+			z-index: 10;
+			height: 300px;
+			width: 400px;
+			top: 50%;
+			margin-top: -150px;
+			left: 50%;
+			margin-left: -200px;
+		}
+	</style>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -37,6 +55,12 @@
 		  <div id="mapCanvas"></div>
 		</div>
 	  </div>
+	</div>
+	<div id="loading-placeholder">
+		<center>
+			<img src="{{ url_for('static', filename="spinner.gif") }}"></img>
+			<h4>Loading...</h4>
+		</center>
 	</div>
     <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key={{ api_key }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='builder.js') }}"></script>
