@@ -31,14 +31,17 @@
 	  <div class="row form-group"></div>
 	  <div class="row form-group">
 		<form id="source-destination-section">
-	      <div class="col-sm-5">
+		  <div class="col-sm-4">
+			  <a href="https://github.com/jcschefer/Railroad_Map">Confused? Check out the GitHub page</a>
+		  </div>
+		  <div class="col-sm-3">
 		    <select name="source" class="selectpicker" data-live-search="true" title="Source" required>
 			  {% for city in cities %}
 				<option value="{{ city.id }}">{{ city.name }}</option>
 			  {% endfor %}
 		    </select>
 		  </div>
-	      <div class="col-sm-5">
+	      <div class="col-sm-3">
 		    <select name="destination" class="selectpicker" data-live-search="true" title="Destination" required>
 			  {% for city in cities %}
 				<option value="{{ city.id }}">{{ city.name }}</option>
