@@ -16,7 +16,7 @@ def get_all_paths():
 	else:
 		with grpc.insecure_channel(PORT) as channel:
 			stub = messages_pb2_grpc.RailroadBackendStub(channel)
-			response = stub.GetAllPaths(messages_pb2.Empty())
+			response = stub.GetAllPaths(messages_pb2.Empty(), None)
 
 			return response
 
@@ -28,10 +28,10 @@ def perform_search(source, destination):
 	if avoid_grpc:
 		from . import railroad_server
 		stub = railroad_server.RailroadServer()
-		return stub.PerformSearch(request)
+		return stub.PerformSearch(request, None)
 	else:
 		with grpc.insecure_channel(PORT) as channel:
 			stub = messages_pb2_grpc.RailroadBackendStub(channel)
-			response = stub.PerformSearch(request)
+			response = stub.PerformSearch(request, None)
 
 		return response
